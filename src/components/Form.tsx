@@ -73,13 +73,17 @@ export default function Form({ dispatch, state }: FormProps) {
 
       <div className="grid grid-cols-1 gap-3">
         <label htmlFor="name" className="font-bold">
-          Actividad:
+          {activity.category === 1 ? "Comida" : "Ejercicio"}
         </label>
         <input
           type="text"
           id="name"
           className="border border-slate-300 p-2 rounded-lg"
-          placeholder="Ej. Comida, Jugo de Naranja, Ensalada, Ejercicio, Pesas, Bicicleta"
+          placeholder={
+            activity.category === 1
+              ? "Comida, Jugo de Naranja, Ensalada"
+              : "Ejercicio, Pesas, Bicicleta"
+          }
           value={activity.name}
           onChange={handleChange}
         />
